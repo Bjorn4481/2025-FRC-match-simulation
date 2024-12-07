@@ -1,8 +1,8 @@
 modules = ["python-3.12"]
 run = "PYTHONDONTWRITEBYTECODE=1 python main.py"
 
-[nix]
+[nix] # type: ignore
 channel = "stable-24_05"
 
-[deployment]
+[deployment] # type: ignore
 run = ["sh", "-c", "PYTHONDONTWRITEBYTECODE=1 python main.py"]
