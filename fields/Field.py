@@ -4,6 +4,9 @@ class Field:
     def __init__(self):
         self.scoring_locations = []
         self.robots = []
+        self.gamepieces = []
+        self.blue_score = 0
+        self.red_score = 0
         self.endgame_duration = 30
         self.match_status = "waiting"
         self.match_time = 150.0 # seconds
@@ -18,6 +21,7 @@ class Field:
             print(f"Robot {robot} started")
         self.env.process(self.clock())
         self.env.run(until=self.match_time)
+        self.end_match()
         
     def clock(self):
         while True:
@@ -39,8 +43,12 @@ class Field:
 
         if self.match_status != self.previous_match_status:
             print(f"{self.match_status} started at {self.env.now}")
-        
 
+    def end_match(self):
+        print("====================================================")
+        print("Match ended")
+        print(f"Scores: Blue {self.blue_score} Red {self.red_score}")       
+    
     def __repr__(self):
         return self.__class__.__name__
     
