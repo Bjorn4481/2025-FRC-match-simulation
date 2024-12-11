@@ -5,3 +5,4 @@ field = Field2022()
 print(field.scoring_locations)
 
 field.start_match()
+#hoihoi
