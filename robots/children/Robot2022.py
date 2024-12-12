@@ -1,4 +1,6 @@
 from ..Robot import Robot
+from scoring_locations.children.Hub2022 import Hub2022
+from gamepieces.children.Cargo2022 import Cargo2022
 import random
 
 class Robot2022(Robot):
@@ -15,7 +17,7 @@ class Robot2022(Robot):
 
     def intake(self):
         if len(self.storage) < self.storage_capacity:
-            self.storage.append("Ball")
+            self.storage.append(Cargo2022)
             print("ball added to storage")
         else:
             print("Storage is full!")
@@ -23,11 +25,13 @@ class Robot2022(Robot):
     def shoot_low(self):
         if len(self.storage) > 0:
             self.storage.pop()
+            #Hub2022.score_low()
             print("ball removed from storage")
 
     def shoot_high(self):
         if len(self.storage) > 0:
             self.storage.pop()
+            #Hub2022.score_high()
             print("ball removed from storage")
     
     def climb(self):
