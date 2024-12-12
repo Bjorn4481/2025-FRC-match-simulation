@@ -13,19 +13,27 @@ class Robot2022(Robot):
         self.accuracy = 0.0
 
     def intake(self):
-        #Check if there is enough space in the storage
-        #If there is, add the gamepiece to the storage
-        print("Robot2022.intake()")
+        if len(self.storage) < self.storage_capacity:
+            self.storage.append("Ball")
+            print("ball added to storage")
+        else:
+            print("Storage is full!")
 
-    def shoot(self):
-        #Check if there is a gamepiece in the storage
-        #If there is, remove the gamepiece from the storage
-        print("Robot2022.shoot()")
+    def shoot_low(self):
+        if len(self.storage) > 0:
+            self.storage.pop()
+            print("ball removed from storage")
+
+    def shoot_high(self):
+        if len(self.storage) > 0:
+            self.storage.pop()
+            print("ball removed from storage")
     
     def climb(self):
-        #Check climb level
-        #Check climb speed
-        print("Robots2022.climb()")
+        if self.climb_level == "None":
+            pass
+        else:
+            print("Robot2022 climbed to level: ", self.climb_level, "within ", self.climb_speed, " seconds")
 
     
         
