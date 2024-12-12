@@ -1,4 +1,5 @@
 from ..Robot import Robot
+import random
 
 class Robot2022(Robot):
     def __init__(self):
@@ -30,10 +31,11 @@ class Robot2022(Robot):
             print("ball removed from storage")
     
     def climb(self):
+        climb_time = random.uniform(self.climb_speed - 2, self.climb_speed + 2)
         if self.climb_level == "None":
             pass
         else:
-            print("Robot2022 climbed to level: ", self.climb_level, "within ", self.climb_speed, " seconds")
+            print("Robot2022 climbed to level: ", self.climb_level, "within ", climb_time, " seconds")
 
     
         
